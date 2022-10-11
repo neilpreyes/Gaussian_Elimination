@@ -152,19 +152,43 @@ public class hw_1_draft_2{
 				values[arrLast-4] = Math.round(answer * 100.0)/100.0;
 				break;
 			case 5:
-				
+				answer = (newMatrix[pivot[arrLast-5]][numEquations] - ((values[arrLast] * newMatrix[pivot[arrLast-5]][numEquations-1]) + 
+						(values[arrLast-1] * newMatrix[pivot[arrLast-5]][numEquations-2]) + (values[arrLast-2] * newMatrix[pivot[arrLast-5]][numEquations-3]) +
+						(values[arrLast-3] * newMatrix[pivot[arrLast-5]][numEquations-4]) + (values[arrLast-4] * newMatrix[pivot[arrLast-5]][numEquations-5]))) 
+				/ newMatrix[pivot[arrLast-5]][arrLast-5];
+				values[arrLast-5] = Math.round(answer * 100.0)/100.0;
 				break;
 			case 6:
-				
+				answer = (newMatrix[pivot[arrLast-6]][numEquations] - ((values[arrLast] * newMatrix[pivot[arrLast-6]][numEquations-1]) + 
+						(values[arrLast-1] * newMatrix[pivot[arrLast-6]][numEquations-2]) + (values[arrLast-2] * newMatrix[pivot[arrLast-6]][numEquations-3]) +
+						(values[arrLast-3] * newMatrix[pivot[arrLast-6]][numEquations-4]) + (values[arrLast-4] * newMatrix[pivot[arrLast-6]][numEquations-5]) +
+						(values[arrLast-5] * newMatrix[pivot[arrLast-6]][numEquations-6]))) / newMatrix[pivot[arrLast-6]][arrLast-6];
+				values[arrLast-6] = Math.round(answer * 100.0)/100.0;
 				break;
 			case 7:
-				
+				answer = (newMatrix[pivot[arrLast-7]][numEquations] - ((values[arrLast] * newMatrix[pivot[arrLast-7]][numEquations-1]) + 
+						(values[arrLast-1] * newMatrix[pivot[arrLast-7]][numEquations-2]) + (values[arrLast-2] * newMatrix[pivot[arrLast-7]][numEquations-3]) +
+						(values[arrLast-3] * newMatrix[pivot[arrLast-7]][numEquations-4]) + (values[arrLast-4] * newMatrix[pivot[arrLast-7]][numEquations-5]) +
+						(values[arrLast-5] * newMatrix[pivot[arrLast-7]][numEquations-6]) + (values[arrLast-6] * newMatrix[pivot[arrLast-7]][numEquations-7]))) 
+				/ newMatrix[pivot[arrLast-7]][arrLast-7];
+				values[arrLast-7] = Math.round(answer * 100.0)/100.0;
 				break;
 			case 8:
-				
+				answer = (newMatrix[pivot[arrLast-8]][numEquations] - ((values[arrLast] * newMatrix[pivot[arrLast-8]][numEquations-1]) + 
+						(values[arrLast-1] * newMatrix[pivot[arrLast-8]][numEquations-2]) + (values[arrLast-2] * newMatrix[pivot[arrLast-8]][numEquations-3]) +
+						(values[arrLast-3] * newMatrix[pivot[arrLast-8]][numEquations-4]) + (values[arrLast-4] * newMatrix[pivot[arrLast-8]][numEquations-5]) +
+						(values[arrLast-5] * newMatrix[pivot[arrLast-8]][numEquations-6]) + (values[arrLast-6] * newMatrix[pivot[arrLast-8]][numEquations-7]) +
+						(values[arrLast-7] * newMatrix[pivot[arrLast-8]][numEquations-8]))) / newMatrix[pivot[arrLast-8]][arrLast-8];
+				values[arrLast-8] = Math.round(answer * 100.0)/100.0;
 				break;
 			case 9:
-				
+				answer = (newMatrix[pivot[arrLast-9]][numEquations] - ((values[arrLast] * newMatrix[pivot[arrLast-9]][numEquations-1]) + 
+						(values[arrLast-1] * newMatrix[pivot[arrLast-9]][numEquations-2]) + (values[arrLast-2] * newMatrix[pivot[arrLast-9]][numEquations-3]) +
+						(values[arrLast-3] * newMatrix[pivot[arrLast-9]][numEquations-4]) + (values[arrLast-4] * newMatrix[pivot[arrLast-9]][numEquations-5]) +
+						(values[arrLast-5] * newMatrix[pivot[arrLast-9]][numEquations-6]) + (values[arrLast-6] * newMatrix[pivot[arrLast-9]][numEquations-7]) +
+						(values[arrLast-7] * newMatrix[pivot[arrLast-9]][numEquations-8]) + (values[arrLast-8] * newMatrix[pivot[arrLast-9]][numEquations-9]))) 
+				/ newMatrix[pivot[arrLast-9]][arrLast-9];
+				values[arrLast-9] = Math.round(answer * 100.0)/100.0;
 				break;
 			default:
 				System.out.println("Out of range");
@@ -187,7 +211,7 @@ public class hw_1_draft_2{
 		do {
 			System.out.println("How many equations do you have? (Please input an integer between 3 and 10.)");
 			numOfEquations = scan.nextInt();
-		}while(numOfEquations > 10 || numOfEquations < 0);
+		}while(numOfEquations > 10 || numOfEquations < 2);
 		
 
 		
@@ -195,11 +219,12 @@ public class hw_1_draft_2{
 		double[][] equations = new double[numOfEquations][numOfEquations+1];
 		
 		char text;
-		boolean complete = false;
-		System.out.println("Is the input a txt file? (Answer only in Y/N)");
-		text = scan.next().charAt(0);
+		boolean complete;
 		
-		do {
+		do { //use input.txt as a test to see if input method works correctly
+			complete = false;
+			System.out.println("Is the input a txt file? (Answer only in Y/N)");
+			text = scan.next().charAt(0);
 			if(text == 'Y' || text == 'y') {
 				String file;
 				System.out.println("Please input the path of the file:");
